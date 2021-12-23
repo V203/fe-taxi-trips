@@ -139,51 +139,6 @@ describe('Taxi Trips', function () {
 
     })
 
-    it("The test Should find all the Data for A given object",async ()=>{
-        const taxiTrips = TaxiTrips(pool);
-        let actual =await  taxiTrips.unifiedSelector();
-        
-        let expected =[
-            {
-              name: 'Durban',
-              trip_region: 1,
-              trip_reg_number: 'ZN5555',
-              avg: '196.00',
-              sum: '784.00'
-            },
-            {
-              name: 'Cape Town',
-              trip_region: 2,
-              trip_reg_number: 'CA1111',
-              avg: '152.60',
-              sum: '763.00'
-            },
-            {
-              name: 'Durban',
-              trip_region: 1,
-              trip_reg_number: 'ZN2222',
-              avg: '189.00',
-              sum: '756.00'
-            },
-            {
-              name: 'Durban',
-              trip_region: 1,
-              trip_reg_number: 'ZN1111',
-              avg: '189.00',
-              sum: '756.00'
-            },
-            {
-              name: 'Cape Town',
-              trip_region: 2,
-              trip_reg_number: 'CJ2222',
-              avg: '171.50',
-              sum: '686.00'
-            }
-          ]
-          
-        assert.deepEqual(expected,actual);
-    
-    })
         
         it("Should be able to select A region based on A reg number", async ()=> {
             const taxiTrips = TaxiTrips(pool);
