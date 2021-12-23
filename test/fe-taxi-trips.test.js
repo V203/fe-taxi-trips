@@ -142,7 +142,7 @@ describe('Taxi Trips', function () {
     it("The test Should find all the Data for A given object",async ()=>{
         const taxiTrips = TaxiTrips(pool);
         let actual =await  taxiTrips.unifiedSelector();
-        console.log(actual)
+        
         let expected =[
             {
               name: 'Durban',
@@ -188,7 +188,7 @@ describe('Taxi Trips', function () {
         it("Should be able to select A region based on A reg number", async ()=> {
             const taxiTrips = TaxiTrips(pool);
             let actual = await taxiTrips.regionForTaxi("CA1111");
-            console.log(actual);
+            
             let expected = {
                 id: 2,
                 name: 'Cape Town',
