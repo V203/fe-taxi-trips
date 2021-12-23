@@ -13,7 +13,9 @@ const connectionString = process.env.DATABASE_URL || 'postgresql://codex-coder:p
 
 const pool = new Pool({
     connectionString,
-    rejectUnauthorized: false
+    ssl: {
+      rejectUnauthorized: false
+  }
   });
 
   const servicesFactory = ServicesFactory(pool);
