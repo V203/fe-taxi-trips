@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <h1 class="h3">Data for A specific region</h1>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+
+<form action="/regionInfo/{{name}}/{{id}}" method="get">
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <table class="table">
+                    <tr> 
+                        <th>Regions</th>
+                        
+                        <th>Reg#</th>
+
+                    </tr>
+                    {{#each region}}
+                    <tr>
+
+                         
+                        <td> <a href="/regionInfo/{{name}}/{{id}}">{{name}}</a></td>
+                        <td>{{id}}</td>
+                    </tr>
+                    {{/each}}
+                </table>
+
+
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+
+</form>
+
+{{regionTotIncome}}

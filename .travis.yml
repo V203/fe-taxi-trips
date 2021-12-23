@@ -1,0 +1,14 @@
+language: node_js
+
+env:
+  - DATABASE_URL=postgresql://postgres@localhost:5432/fetxidb_test
+
+node_js:  
+  - 12
+
+before_script:
+  - psql -c 'create database  fetxidb_test;' -U postgres
+  - psql -U postgres -d fetxidb_test -a -f ./sql/tables.sql
+
+services:
+  - postgresql

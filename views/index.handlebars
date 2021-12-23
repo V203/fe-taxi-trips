@@ -1,0 +1,61 @@
+<body>
+
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <h3 class="h3">The top 5 taxis with the highest income.</h3>
+
+            </div>
+            <div class="col-2"></div>
+        </div>
+
+
+    </div>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <table class="table">
+                    <tr>
+
+                        <th>Taxi Reg#</th>
+                        <th>Taxi Region</th>
+                        <th>Avg Income</th>
+                        <th>Total Daily Income</th>
+
+                    </tr>
+                    {{#each tableData}}
+                    <tr>
+
+
+                       
+                            <td>  <a href="/specificTaxi/{{trip_reg_number}} ">{{trip_reg_number}} </a></td>
+                        
+                        <a href="/specificTaxi">
+                            <td> {{name}} </td>
+                        </a>
+                        <a href="specificTaxi">
+                            <td>{{avg}}</td>
+                        </a>
+                        <a href="specificTaxi">
+                            <td> {{sum}} </td>
+                        </a>
+
+
+                    </tr>
+                    {{/each}}
+                </table>
+
+
+            </div>
+            <div class="col-3"></div>
+        </div>
+
+
+    </div>
