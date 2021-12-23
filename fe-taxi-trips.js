@@ -1,4 +1,5 @@
 module.exports = function TaxiTrips(pool) {
+  
 
     let totalTripCount = async () => Number((await pool.query(`select count(*) from trip`)).rows[0]['count']);
 

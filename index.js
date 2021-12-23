@@ -36,7 +36,7 @@ app.set('view engine', 'handlebars');
 
 
 app.get('/',async function(req, res) {
-  let tableData = await servicesFactory.unifiedSelector()
+  let tableData = await servicesFactory.unifiedSelector().catch("error")
 	console.log(tableData);
 	res.render('index', {
     tableData
@@ -45,25 +45,25 @@ app.get('/',async function(req, res) {
 
 app.get("/specificTaxi/:reg",async (req,res)=>{
   let reg = req.params.reg
-  console.log({reg});
- let taxiRegion =  await servicesFactory.regionForTaxi(reg);
-  let totIncome = await servicesFactory.findIncomeByRegNumber(reg);
+  // console.log({reg});
+ let taxiRegion =  await servicesFactory.regionForTaxi(reg).catch("error");
+  let totIncome = await servicesFactory.findIncomeByRegNumber(reg).catch("error");
   res.render('specificTaxi',{totIncome,taxiRegion})
 });
 
 
 
 app.get("/region",async (req,res)=>{
-  let region = await servicesFactory.findAllRegions();
+  let region = await servicesFactory.findAllRegions().catch("error");
   res.render(`region`,{region})
 });
 
 
 app.get("/region/:name/:id",async (req,res)=>{
-  let name = req.params.name
-  let regionTotIncome = await servicesFactory.unifiedSelector(name);
-  console.log(regionTotIncome);
-  console.log(name);
+  // let name = req.params.name
+  // let regionTotIncome = await servicesFactory.unifiedSelector(name);
+  // console.log(regionTotIncome);
+  // console.log(name);
   res.render(`region`)
 });
 
@@ -77,8 +77,8 @@ res.render("region");
 app.get("/regionInfo/:name/:id",async (req,res)=>{
   let name = req.params.name;
   let id = req.params.id;
-  let totIncome = await servicesFactory.findTotalIncomeByRegion(name);
-  let numOfTrips = await servicesFactory.findTripsByRegion(name);
+  let totIncome = await servicesFactory.findTotalIncomeByRegion(name).catch("error");
+  let numOfTrips = await servicesFactory.findTripsByRegion(name).catch("error");
   let opt = await servicesFactory.findAllRegions();
 
   res.render("regionInfo",{totIncome, numOfTrips,name,id,opt})
@@ -88,9 +88,9 @@ app.get("/regionInfo/:name/:id",async (req,res)=>{
   
   let name = req.params.name;
   let id = req.params.id;
-  let totIncome = await servicesFactory.findTotalIncomeByRegion(name);
-  let numOfTrips = await servicesFactory.findTripsByRegion(name);
-  let opt = await servicesFactory.findAllRegions();
+  let totIncome = await servicesFactory.findTotalIncomeByRegion(name).catch("error");
+  let numOfTrips = await servicesFactory.findTripsByRegion(name).catch("error");
+  let opt = await servicesFactory.findAllRegions().catch("error");
 
   // res.redirect("/regionInfo",{totIncome, numOfTrips,name,id,opt})
 res.redirect(`/region/${name}/${id}`);
