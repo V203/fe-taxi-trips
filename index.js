@@ -9,11 +9,11 @@ const PORT =  process.env.PORT || 3017;
 
 const connectionString = process.env.DATABASE_URL || 'postgresql://codex-coder:pg123@localhost:5432/fetxidb';
 
-let useSSL = false;
+
 
 const pool = new Pool({
     connectionString,
-    ssl : useSSL
+    rejectUnauthorized: false
   });
 
   const servicesFactory = ServicesFactory(pool);
