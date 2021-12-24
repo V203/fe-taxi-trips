@@ -48,8 +48,8 @@ describe('Taxi Trips', function () {
         const taxiTrips = TaxiTrips(pool);
 
         let DZ1111trips = [
-            { route_name: 'sandton-midrand', sum: '476.00' },
             { route_name: 'sandton-alexandra', sum: '476.00' },
+            { route_name: 'sandton-midrand', sum: '476.00' },
             { route_name: 'sandton-randburg', sum: '476.00' }
           ]
           
