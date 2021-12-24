@@ -27,7 +27,7 @@ module.exports = function TaxiTrips(pool) {
         }
     };
 
-    let findTripsByRegNumber = async (reg_number) => { try { return (await pool.query(`select * from trip where trip.trip_reg_number = '${reg_number}'`)).rows } catch (error) { `${error}` } };
+    let findTripsByRegNumber = async (reg_number) => { try { return (await pool.query(`select route_name, sum(fare_per_trip)  from trip  join route on trip.trip_region = route.region_id where trip.trip_reg_number = '${reg_number}' group by route_name`)).rows } catch (error) { `${error}` } };
 
     let findTripsByRegion = async (region) => { try { return Number((await pool.query(`select count(*) from trip join region on region.id = trip.trip_region where '${region}' = region.name`)).rows[0]['count']) } catch (e) { console.log(e); } };
 

@@ -47,40 +47,14 @@ describe('Taxi Trips', function () {
 
         const taxiTrips = TaxiTrips(pool);
 
-        let DZ1111trips = [{ fare_total: '119.00', trip_reg_number: 'DZ1111', trip_region: 3, trip_route: 7 }, { fare_total: '119.00', trip_reg_number: 'DZ1111', trip_region: 3, trip_route: 7 },
-        { fare_total: '119.00', trip_reg_number: 'DZ1111', trip_region: 3, trip_route: 8 },
-        { fare_total: '119.00', trip_reg_number: 'DZ1111', trip_region: 3, trip_route: 9 }]
-
-        let DD5555trips = [
-            {
-                trip_route: 7,
-                trip_reg_number: 'DD5555',
-                trip_region: 3,
-                fare_total: '119.00'
-            },
-            {
-                trip_route: 8,
-                trip_reg_number: 'DD5555',
-                trip_region: 3,
-                fare_total: '119.00'
-            },
-            {
-                trip_route: 9,
-                trip_reg_number: 'DD5555',
-                trip_region: 3,
-                fare_total: '119.00'
-            },
-            {
-                trip_route: 9,
-                trip_reg_number: 'DD5555',
-                trip_region: 3,
-                fare_total: '119.00'
-            }
-        ]
-
+        let DZ1111trips = [
+            { route_name: 'sandton-midrand', sum: '476.00' },
+            { route_name: 'sandton-alexandra', sum: '476.00' },
+            { route_name: 'sandton-randburg', sum: '476.00' }
+          ]
+          
         assert.deepStrictEqual(DZ1111trips, await taxiTrips.findTripsByRegNumber('DZ1111'));
-        assert.deepStrictEqual(DD5555trips, await taxiTrips.findTripsByRegNumber('DD5555'));
-
+        
     });
 
     it('should find the total number of trips by region', async function () {

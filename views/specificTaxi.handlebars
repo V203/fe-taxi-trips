@@ -23,7 +23,7 @@
 
                 </tr>
                 <form action="/specific" method="get">
-                    
+
                     <tr>
 
                         <td> {{route_name}} </td>
@@ -33,7 +33,7 @@
 
 
                     </tr>
-                    
+
                 </form>
             </table>
 
@@ -44,8 +44,42 @@
 
 
 </div>
-{{#each specificTaxi}}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <hr>
+        </div>
+    </div>
+</div>
 
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <h3 class="h3">Trips made made taxi {{totIncome.trip_reg_number}} </h3>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
 
-{{/each}}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <table  class="table">
+                <tr>
+                    <th>trips made</th><th>Route Name</th>
+                </tr>
+                {{#each tripsForReg}}
+                <tr>
+                    <td>{{sum}}</td>
+                    <td>{{route_name}}</td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
